@@ -6,7 +6,7 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 const misc: any = {
   navbar_menu_visible: 0,
   active_collapse: true,
-  disabled_collapse_init: 0,
+  disabled_collapse_init: 0
 };
 
 declare var $: any;
@@ -14,7 +14,6 @@ declare var $: any;
   selector: 'app-navbar-cmp',
   templateUrl: 'navbar.component.html'
 })
-
 export class NavbarComponent implements OnInit {
   private listTitles: any[];
   location: Location;
@@ -26,7 +25,7 @@ export class NavbarComponent implements OnInit {
 
   @ViewChild('app-navbar-cmp', { static: false }) button: any;
 
-  constructor(location: Location, private renderer: Renderer, private element: ElementRef, private router: Router, ) {
+  constructor(location: Location, private renderer: Renderer, private element: ElementRef, private router: Router) {
     this.location = location;
     this.nativeElement = element.nativeElement;
     this.sidebarVisible = false;
@@ -37,9 +36,8 @@ export class NavbarComponent implements OnInit {
     if (misc.sidebar_mini_active === true) {
       body.classList.remove('sidebar-mini');
       misc.sidebar_mini_active = false;
-
     } else {
-      setTimeout(function () {
+      setTimeout(function() {
         body.classList.add('sidebar-mini');
 
         misc.sidebar_mini_active = true;
@@ -47,12 +45,12 @@ export class NavbarComponent implements OnInit {
     }
 
     // we simulate the window Resize so the charts will get updated in realtime.
-    const simulateWindowResize = setInterval(function () {
+    const simulateWindowResize = setInterval(function() {
       window.dispatchEvent(new Event('resize'));
     }, 180);
 
     // we stop the simulation of Window Resize after the animations are completed
-    setTimeout(function () {
+    setTimeout(function() {
       clearInterval(simulateWindowResize);
     }, 1000);
   }
@@ -61,17 +59,16 @@ export class NavbarComponent implements OnInit {
     const sidebar = document.getElementsByClassName('sidebar')[0];
 
     if (misc.hide_sidebar_active === true) {
-      setTimeout(function () {
+      setTimeout(function() {
         body.classList.remove('hide-sidebar');
         misc.hide_sidebar_active = false;
       }, 300);
-      setTimeout(function () {
+      setTimeout(function() {
         sidebar.classList.remove('animation');
       }, 600);
       sidebar.classList.add('animation');
-
     } else {
-      setTimeout(function () {
+      setTimeout(function() {
         body.classList.add('hide-sidebar');
         // $('.sidebar').addClass('animation');
         misc.hide_sidebar_active = true;
@@ -79,12 +76,12 @@ export class NavbarComponent implements OnInit {
     }
 
     // we simulate the window Resize so the charts will get updated in realtime.
-    const simulateWindowResize = setInterval(function () {
+    const simulateWindowResize = setInterval(function() {
       window.dispatchEvent(new Event('resize'));
     }, 180);
 
     // we stop the simulation of Window Resize after the animations are completed
-    setTimeout(function () {
+    setTimeout(function() {
       clearInterval(simulateWindowResize);
     }, 1000);
   }
@@ -101,14 +98,16 @@ export class NavbarComponent implements OnInit {
     if (body.classList.contains('hide-sidebar')) {
       misc.hide_sidebar_active = true;
     }
-    this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
-      this.sidebarClose();
+    this._router = this.router.events
+      .filter(event => event instanceof NavigationEnd)
+      .subscribe((event: NavigationEnd) => {
+        this.sidebarClose();
 
-      const $layer = document.getElementsByClassName('close-layer')[0];
-      if ($layer) {
-        $layer.remove();
-      }
-    });
+        const $layer = document.getElementsByClassName('close-layer')[0];
+        if ($layer) {
+          $layer.remove();
+        }
+      });
   }
   onResize(event) {
     if ($(window).width() > 991) {
@@ -120,17 +119,16 @@ export class NavbarComponent implements OnInit {
     var $toggle = document.getElementsByClassName('navbar-toggler')[0];
     const toggleButton = this.toggleButton;
     const body = document.getElementsByTagName('body')[0];
-    setTimeout(function () {
+    setTimeout(function() {
       toggleButton.classList.add('toggled');
     }, 500);
     body.classList.add('nav-open');
-    setTimeout(function () {
+    setTimeout(function() {
       $toggle.classList.add('toggled');
     }, 430);
 
     var $layer = document.createElement('div');
     $layer.setAttribute('class', 'close-layer');
-
 
     if (body.querySelectorAll('.main-panel')) {
       document.getElementsByClassName('main-panel')[0].appendChild($layer);
@@ -138,17 +136,18 @@ export class NavbarComponent implements OnInit {
       document.getElementsByClassName('wrapper-full-page')[0].appendChild($layer);
     }
 
-    setTimeout(function () {
+    setTimeout(function() {
       $layer.classList.add('visible');
     }, 100);
 
-    $layer.onclick = function () { //asign a function
+    $layer.onclick = function() {
+      //asign a function
       body.classList.remove('nav-open');
       this.mobile_menu_visible = 0;
       this.sidebarVisible = false;
 
       $layer.classList.remove('visible');
-      setTimeout(function () {
+      setTimeout(function() {
         $layer.remove();
         $toggle.classList.remove('toggled');
       }, 400);
@@ -157,7 +156,7 @@ export class NavbarComponent implements OnInit {
     body.classList.add('nav-open');
     this.mobile_menu_visible = 1;
     this.sidebarVisible = true;
-  };
+  }
   sidebarClose() {
     var $toggle = document.getElementsByClassName('navbar-toggler')[0];
     const body = document.getElementsByTagName('body')[0];
@@ -173,12 +172,12 @@ export class NavbarComponent implements OnInit {
       $layer.remove();
     }
 
-    setTimeout(function () {
+    setTimeout(function() {
       $toggle.classList.remove('toggled');
     }, 400);
 
     this.mobile_menu_visible = 0;
-  };
+  }
   sidebarToggle() {
     if (this.sidebarVisible === false) {
       this.sidebarOpen();
@@ -193,9 +192,9 @@ export class NavbarComponent implements OnInit {
       titlee = titlee.slice(1);
     }
     for (let i = 0; i < this.listTitles.length; i++) {
-      if (this.listTitles[i].type === "link" && this.listTitles[i].path === titlee) {
+      if (this.listTitles[i].type === 'link' && this.listTitles[i].path === titlee) {
         return this.listTitles[i].title;
-      } else if (this.listTitles[i].type === "sub") {
+      } else if (this.listTitles[i].type === 'sub') {
         for (let j = 0; j < this.listTitles[i].children.length; j++) {
           let subtitle = this.listTitles[i].path + '/' + this.listTitles[i].children[j].path;
           // console.log(subtitle)
@@ -206,7 +205,6 @@ export class NavbarComponent implements OnInit {
         }
       }
     }
-    return 'Fomulario';
   }
   getPath() {
     return this.location.prepareExternalUrl(this.location.path());

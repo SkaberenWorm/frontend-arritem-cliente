@@ -58,6 +58,8 @@ import { CommonsServiceModule } from './commons/commons-service.module';
 import { EffectsModule } from '@ngrx/effects';
 import { appEffect } from './store/effects';
 import localeES from '@angular/common/locales/es-CL';
+import { ClienteLayoutComponent } from './layouts/cliente-layout/cliente-layout.component';
+import { FuncionarioLayoutComponent } from './layouts/funcionario-layout/funcionario-layout.component';
 registerLocaleData(localeES, 'es-CL');
 
 @NgModule({
@@ -93,7 +95,8 @@ registerLocaleData(localeES, 'es-CL');
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule
-  ]
+  ],
+  declarations: []
 })
 export class MaterialModule {}
 
@@ -128,7 +131,7 @@ export class MaterialModule {}
       useValue: 'es-CL'
     }
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
+  declarations: [AppComponent, AdminLayoutComponent, FuncionarioLayoutComponent, AuthLayoutComponent, ClienteLayoutComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

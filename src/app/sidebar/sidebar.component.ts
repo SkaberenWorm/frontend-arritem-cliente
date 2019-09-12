@@ -50,22 +50,42 @@ export class SidebarComponent implements OnInit {
       icontype: 'grid_on',
       collapse: 'departamentos',
       children: [{ path: 'new', title: 'Nuevo Departamento', ab: '-' }, { path: 'listado', title: 'Listado De Departamentos', ab: '-' }]
-    },
-    {
-      path: '/admin',
-      title: 'Administración',
-      type: 'sub',
-      icontype: 'settings',
-      collapse: 'settings',
-      children: [
-        { path: 'sala', title: 'Salas', ab: '-' },
-        { path: 'piso', title: 'Pisos', ab: '-' },
-        { path: 'edificio', title: 'Edificios', ab: '-' }
-      ]
     }
   ];
 
-  private menu_user: RouteInfo[] = [];
+  private menu_funcionario: RouteInfo[] = [
+    {
+      path: '/',
+      title: 'Inicio',
+      type: 'link',
+      icontype: 'home'
+    },
+    {
+      path: '/departamento',
+      title: 'Departamentos',
+      type: 'sub',
+      icontype: 'grid_on',
+      collapse: 'departamentos',
+      children: [{ path: 'new', title: 'Nuevo Departamento', ab: '-' }, { path: 'listado', title: 'Listado De Departamentos', ab: '-' }]
+    }
+  ];
+
+  private menu_cliente: RouteInfo[] = [
+    {
+      path: '/',
+      title: 'Inicio',
+      type: 'link',
+      icontype: 'home'
+    },
+    {
+      path: '/departamento',
+      title: 'Departamentos',
+      type: 'sub',
+      icontype: 'grid_on',
+      collapse: 'departamentos',
+      children: [{ path: 'listado', title: 'Listado De Departamentos', ab: '-' }]
+    }
+  ];
 
   constructor(
     private _authenticationService: AuthenticationService,
@@ -83,8 +103,10 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
     if (this._authenticationService.esRol('Administrador')) {
       ROUTES = this.menu_admin;
-    } else if (this._authenticationService.esRol('ROLE_USUARIO')) {
-      ROUTES = this.menu_user;
+    } else if (this._authenticationService.esRol('Funcionario')) {
+      ROUTES = this.menu_funcionario;
+    } else {
+      ROUTES = this.menu_cliente;
     }
 
     this._authenticationService.cargarStorage();

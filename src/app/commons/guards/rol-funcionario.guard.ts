@@ -4,11 +4,11 @@ import { Observable } from 'rxjs';
 import swal from 'sweetalert2';
 import { AuthenticationService } from '../services/authentication.service';
 @Injectable()
-export class RolAdminGuard implements CanActivate, CanLoad {
+export class RolFuncionarioGuard implements CanActivate {
   constructor(public _authService: AuthenticationService, public router: Router) {}
 
-  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (this._authService.esRol('Administrador')) {
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    if (this._authService.esRol('Funcionario')) {
       return true;
     }
     swal.fire({
@@ -22,7 +22,7 @@ export class RolAdminGuard implements CanActivate, CanLoad {
   }
 
   canLoad(route: Route, segments: UrlSegment[]): boolean | Observable<boolean> | Promise<boolean> {
-    if (this._authService.esRol('Administrador')) {
+    if (this._authService.esRol('Funcionario')) {
       return true;
     }
     swal.fire({

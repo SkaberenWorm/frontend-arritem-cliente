@@ -49,8 +49,10 @@ export class LoginIndexComponent implements OnInit, OnDestroy {
       if (state.authenticate) {
         if (this.authenticationService.esRol('Administrador')) {
           this.router.navigate(['/admin']);
+        } else if (this.authenticationService.esRol('Funcionario')) {
+          this.router.navigate(['/check']);
         } else {
-          this.router.navigate(['/user']);
+          this.router.navigate(['/inicio']);
         }
       }
       if (state.error != null) {
