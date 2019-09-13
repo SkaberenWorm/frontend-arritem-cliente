@@ -8,9 +8,6 @@ import { DepartamentoFormComponent } from './departamento-form/departamento-form
 
 @NgModule({
   declarations: [DepartamentoListComponent, DepartamentoViewComponent, DepartamentoFormComponent],
-  imports: [
-    CommonModule,
-    DepartamentoRoutingModule
-  ]
+  imports: [CommonModule, DepartamentoRoutingModule]
 })
-export class DepartamentoModule { }
+export class DepartamentoModule {}

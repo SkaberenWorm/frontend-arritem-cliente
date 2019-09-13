@@ -55,7 +55,7 @@ export class SidebarComponent implements OnInit {
 
   private menu_funcionario: RouteInfo[] = [
     {
-      path: '/',
+      path: '/check',
       title: 'Inicio',
       type: 'link',
       icontype: 'home'
@@ -72,7 +72,7 @@ export class SidebarComponent implements OnInit {
 
   private menu_cliente: RouteInfo[] = [
     {
-      path: '/',
+      path: '/inicio',
       title: 'Inicio',
       type: 'link',
       icontype: 'home'
@@ -93,12 +93,12 @@ export class SidebarComponent implements OnInit {
     private authenticationService: AuthenticationService
   ) {}
 
-  isMobileMenu() {
+  /* isMobileMenu() {
     if ($(window).width() > 991) {
       return false;
     }
     return true;
-  }
+  } */
 
   ngOnInit() {
     if (this._authenticationService.esRol('Administrador')) {

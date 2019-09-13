@@ -9,6 +9,7 @@ import { RolClienteGuard } from './commons/guards/rol-cliente.guard';
 import { RolClienteDenyGuard } from './commons/guards/rol-cliente-deny.guard';
 import { RolFuncionarioGuard } from './commons/guards/rol-funcionario.guard';
 import { FuncionarioLayoutComponent } from './layouts/funcionario-layout/funcionario-layout.component';
+import { GeneralLayoutComponent } from './layouts/general/general-layout.component';
 
 export const AppRoutes: Routes = [
   {
@@ -41,7 +42,7 @@ export const AppRoutes: Routes = [
   },
   {
     path: 'departamento',
-    component: AdminLayoutComponent,
+    component: GeneralLayoutComponent,
     loadChildren: './paginas/departamento/departamento.module#DepartamentoModule',
     canLoad: [LoginGuard]
   }

@@ -7,13 +7,15 @@ import 'rxjs/add/operator/filter';
 import { NavbarComponent } from '../../shared/navbar/navbar.component';
 import PerfectScrollbar from 'perfect-scrollbar';
 import * as $ from 'jquery';
+import { Observable, of as observableOf } from 'rxjs';
 import { AuthenticationService } from 'src/app/commons/services/authentication.service';
+
 @Component({
-  selector: 'app-cliente-layout',
-  templateUrl: './cliente-layout.component.html',
+  selector: 'app-general-layout',
+  templateUrl: './general-layout.component.html',
   styles: []
 })
-export class ClienteLayoutComponent implements OnInit, AfterViewInit {
+export class GeneralLayoutComponent implements OnInit, AfterViewInit {
   private _router: Subscription;
   private lastPoppedUrl: string;
   private yScrollStack: number[] = [];
@@ -76,6 +78,7 @@ export class ClienteLayoutComponent implements OnInit, AfterViewInit {
       return false;
     }
   }
+
   esCliente() {
     return this.authenticationService.esRol('Cliente');
   }

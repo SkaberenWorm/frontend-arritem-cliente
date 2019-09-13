@@ -60,6 +60,9 @@ import { appEffect } from './store/effects';
 import localeES from '@angular/common/locales/es-CL';
 import { ClienteLayoutComponent } from './layouts/cliente-layout/cliente-layout.component';
 import { FuncionarioLayoutComponent } from './layouts/funcionario-layout/funcionario-layout.component';
+import { FooterClienteModule } from './shared/footer-cliente/footer-cliente.module';
+import { GeneralLayoutComponent } from './layouts/general/general-layout.component';
+
 registerLocaleData(localeES, 'es-CL');
 
 @NgModule({
@@ -114,6 +117,7 @@ export class MaterialModule {}
     SidebarModule,
     NavbarModule,
     FooterModule,
+    FooterClienteModule,
     FixedpluginModule,
     CommonsServiceModule,
     StoreModule.forRoot(appReducers),
@@ -123,7 +127,6 @@ export class MaterialModule {}
       logOnly: environment.production // Restrict extension to log-only mode
     }),
     BlockUIModule.forRoot()
-    //BlockUIHttpModule.forRoot({ blockAllRequestsInProgress: true })
   ],
   providers: [
     {
@@ -131,7 +134,7 @@ export class MaterialModule {}
       useValue: 'es-CL'
     }
   ],
-  declarations: [AppComponent, AdminLayoutComponent, FuncionarioLayoutComponent, AuthLayoutComponent, ClienteLayoutComponent],
+  declarations: [AppComponent, AdminLayoutComponent, GeneralLayoutComponent, FuncionarioLayoutComponent, AuthLayoutComponent, ClienteLayoutComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

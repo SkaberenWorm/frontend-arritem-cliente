@@ -26,7 +26,8 @@
               "src/assets/css/demo.css",
               "node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css",
               "src/assets/scss/material-dashboard.scss",
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
@@ -97,7 +98,8 @@
               "node_modules/angular-calendar/scss/angular-calendar.scss",
               "node_modules/sweetalert2/src/sweetalert2.scss",
               "src/assets/css/demo.css",
-              "src/assets/scss/material-dashboard.scss"
+              "src/assets/scss/material-dashboard.scss",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
