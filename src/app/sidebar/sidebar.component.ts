@@ -38,7 +38,7 @@ export class SidebarComponent implements OnInit {
 
   private menu_admin: RouteInfo[] = [
     {
-      path: '/',
+      path: '/admin',
       title: 'Inicio',
       type: 'link',
       icontype: 'home'
@@ -49,7 +49,10 @@ export class SidebarComponent implements OnInit {
       type: 'sub',
       icontype: 'grid_on',
       collapse: 'departamentos',
-      children: [{ path: 'new', title: 'Nuevo Departamento', ab: '-' }, { path: 'listado', title: 'Listado De Departamentos', ab: '-' }]
+      children: [
+        { path: 'new', title: 'Nuevo Departamento', ab: '-' },
+        { path: 'listado', title: 'Listado De Departamentos', ab: '-' }
+      ]
     }
   ];
 
@@ -66,7 +69,10 @@ export class SidebarComponent implements OnInit {
       type: 'sub',
       icontype: 'grid_on',
       collapse: 'departamentos',
-      children: [{ path: 'new', title: 'Nuevo Departamento', ab: '-' }, { path: 'listado', title: 'Listado De Departamentos', ab: '-' }]
+      children: [
+        { path: 'new', title: 'Nuevo Departamento', ab: '-' },
+        { path: 'listado', title: 'Listado De Departamentos', ab: '-' }
+      ]
     }
   ];
 
@@ -93,13 +99,6 @@ export class SidebarComponent implements OnInit {
     private authenticationService: AuthenticationService
   ) {}
 
-  /* isMobileMenu() {
-    if ($(window).width() > 991) {
-      return false;
-    }
-    return true;
-  } */
-
   ngOnInit() {
     if (this._authenticationService.esRol('Administrador')) {
       ROUTES = this.menu_admin;
@@ -112,7 +111,9 @@ export class SidebarComponent implements OnInit {
     this._authenticationService.cargarStorage();
     // tslint:disable-next-line: max-line-length
     this.nombreUsuario =
-      this._authenticationService.nombre.length > 0 ? this._authenticationService.nombre : this._authenticationService.obtenerName();
+      this._authenticationService.nombre.length > 0
+        ? this._authenticationService.nombre
+        : this._authenticationService.obtenerName();
 
     this.menuItems = ROUTES.filter(menuItem => menuItem);
     //console.log(this.menuItems);
@@ -129,7 +130,10 @@ export class SidebarComponent implements OnInit {
 
   isMac(): boolean {
     let bool = false;
-    if (navigator.platform.toUpperCase().indexOf('MAC') >= 0 || navigator.platform.toUpperCase().indexOf('IPAD') >= 0) {
+    if (
+      navigator.platform.toUpperCase().indexOf('MAC') >= 0 ||
+      navigator.platform.toUpperCase().indexOf('IPAD') >= 0
+    ) {
       bool = true;
     }
     return bool;

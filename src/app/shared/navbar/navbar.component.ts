@@ -178,12 +178,7 @@ export class NavbarComponent implements OnInit {
 
     this.mobile_menu_visible = 0;
   }
-  isMobileMenu() {
-    if ($(window).width() > 991) {
-      return false;
-    }
-    return true;
-  }
+  
   sidebarToggle() {
     if (this.sidebarVisible === false) {
       this.sidebarOpen();

@@ -1,6 +1,6 @@
-# UFT Angular Started
-Este proyecto es la base para crear los frontend de los sistema que realizemos internamente
+# Angular Started
 
+Este proyecto es la base para crear los frontend de los sistema que realizemos internamente
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.5.
 

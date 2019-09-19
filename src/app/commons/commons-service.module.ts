@@ -7,7 +7,6 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 
 import { LoginGuard } from './guards/login.guard';
-import { RolAdminGuard } from './guards/rol-admin.guard';
 import { AuthGuard } from './guards/auth.guard';
 import { Util } from './util/util';
 import { UtilFormating } from './util/util.formating';
@@ -17,10 +16,8 @@ import { BlockUIModule } from 'ng-block-ui';
 import { BlockUIHttpModule } from 'ng-block-ui/http';
 import { NgbPaginationModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { RolClienteDenyGuard } from './guards/rol-cliente-deny.guard';
 import { MatSelectModule, MatInputModule } from '@angular/material';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { RolFuncionarioGuard } from './guards/rol-funcionario.guard';
 import { RolClienteGuard } from './guards/rol-cliente.guard';
 @NgModule({
   declarations: [FieldErrorDisplayComponent],
@@ -50,9 +47,6 @@ import { RolClienteGuard } from './guards/rol-cliente.guard';
       multi: true
     },
     LoginGuard,
-    RolAdminGuard,
-    RolFuncionarioGuard,
-    RolClienteDenyGuard,
     RolClienteGuard,
     AuthGuard,
     Util,

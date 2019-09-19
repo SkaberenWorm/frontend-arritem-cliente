@@ -48,11 +48,23 @@ export class LoginIndexComponent implements OnInit, OnDestroy {
       }
       if (state.authenticate) {
         if (this.authenticationService.esRol('Administrador')) {
-          this.router.navigate(['/admin']);
+          this.authenticationService.logout();
+          swal.fire({
+            title: 'Error',
+            text: 'Plataforma solo para clientes',
+            type: 'error'
+          });
         } else if (this.authenticationService.esRol('Funcionario')) {
-          this.router.navigate(['/check']);
-        } else {
+          this.authenticationService.logout();
+          swal.fire({
+            title: 'Error',
+            text: 'Plataforma solo para clientes',
+            type: 'error'
+          });
+        } else if (this.authenticationService.esRol('Cliente')) {
           this.router.navigate(['/inicio']);
+        } else {
+          this.authenticationService.logout();
         }
       }
       if (state.error != null) {

@@ -43,7 +43,6 @@ import { SidebarModule } from './sidebar/sidebar.module';
 import { FooterModule } from './shared/footer/footer.module';
 import { NavbarModule } from './shared/navbar/navbar.module';
 import { FixedpluginModule } from './shared/fixedplugin/fixedplugin.module';
-import { AdminLayoutComponent } from './layouts/admin/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
 
 import { AppRoutes } from './app.routing';
@@ -51,7 +50,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { appReducers } from './store/app.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from 'src/environments/environment';
 import { BlockUIModule } from 'ng-block-ui';
 import { BlockUIHttpModule } from 'ng-block-ui/http';
 import { CommonsServiceModule } from './commons/commons-service.module';
@@ -59,9 +57,10 @@ import { EffectsModule } from '@ngrx/effects';
 import { appEffect } from './store/effects';
 import localeES from '@angular/common/locales/es-CL';
 import { ClienteLayoutComponent } from './layouts/cliente-layout/cliente-layout.component';
-import { FuncionarioLayoutComponent } from './layouts/funcionario-layout/funcionario-layout.component';
 import { FooterClienteModule } from './shared/footer-cliente/footer-cliente.module';
 import { GeneralLayoutComponent } from './layouts/general/general-layout.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 registerLocaleData(localeES, 'es-CL');
 
@@ -99,7 +98,8 @@ registerLocaleData(localeES, 'es-CL');
     MatToolbarModule,
     MatTooltipModule
   ],
-  declarations: []
+  declarations: [],
+  imports: [ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })]
 })
 export class MaterialModule {}
 
@@ -134,7 +134,7 @@ export class MaterialModule {}
       useValue: 'es-CL'
     }
   ],
-  declarations: [AppComponent, AdminLayoutComponent, GeneralLayoutComponent, FuncionarioLayoutComponent, AuthLayoutComponent, ClienteLayoutComponent],
+  declarations: [AppComponent, GeneralLayoutComponent, AuthLayoutComponent, ClienteLayoutComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
