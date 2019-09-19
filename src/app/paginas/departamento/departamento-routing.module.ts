@@ -11,12 +11,12 @@ const routes: Routes = [
     canActivate: [LoginGuard]
   },
   {
-    path: 'listado',
+    path: 'search',
     component: DepartamentoListComponent,
     canActivate: [LoginGuard]
   },
   {
-    path: ':id/view',
+    path: 'like',
     component: DepartamentoListComponent,
     canActivate: [LoginGuard]
   }

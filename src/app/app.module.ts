@@ -56,11 +56,15 @@ import { CommonsServiceModule } from './commons/commons-service.module';
 import { EffectsModule } from '@ngrx/effects';
 import { appEffect } from './store/effects';
 import localeES from '@angular/common/locales/es-CL';
-import { ClienteLayoutComponent } from './layouts/cliente-layout/cliente-layout.component';
 import { FooterClienteModule } from './shared/footer-cliente/footer-cliente.module';
-import { GeneralLayoutComponent } from './layouts/general/general-layout.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { HomeLayoutComponent } from './layouts/home/home.component';
+import { SearchLayoutComponent } from './layouts/search/search.component';
+import { MapLayoutComponent } from './layouts/map/map.component';
+import { ProfileLayoutComponent } from './layouts/profile/profile.component';
+import { LikeLayoutComponent } from './layouts/like/like.component';
+import { ClienteModule } from './paginas/cliente/cliente.module';
 
 registerLocaleData(localeES, 'es-CL');
 
@@ -98,13 +102,14 @@ registerLocaleData(localeES, 'es-CL');
     MatToolbarModule,
     MatTooltipModule
   ],
-  declarations: [],
-  imports: [ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })]
+  imports: [],
+  declarations: []
 })
 export class MaterialModule {}
 
 @NgModule({
   imports: [
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     CommonModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -126,7 +131,8 @@ export class MaterialModule {}
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production // Restrict extension to log-only mode
     }),
-    BlockUIModule.forRoot()
+    BlockUIModule.forRoot(),
+    ClienteModule
   ],
   providers: [
     {
@@ -134,7 +140,15 @@ export class MaterialModule {}
       useValue: 'es-CL'
     }
   ],
-  declarations: [AppComponent, GeneralLayoutComponent, AuthLayoutComponent, ClienteLayoutComponent],
+  declarations: [
+    AppComponent,
+    AuthLayoutComponent,
+    HomeLayoutComponent,
+    SearchLayoutComponent,
+    MapLayoutComponent,
+    ProfileLayoutComponent,
+    LikeLayoutComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

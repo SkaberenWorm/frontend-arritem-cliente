@@ -1,5 +1,5 @@
 import { Component, OnInit, Renderer, ViewChild, ElementRef, Directive } from '@angular/core';
-import { ROUTES } from '../.././sidebar/sidebar.component';
+import { ROUTES } from '../../../sidebar/sidebar.component';
 import { Router, ActivatedRoute, NavigationEnd, NavigationStart } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
@@ -11,10 +11,11 @@ const misc: any = {
 
 declare var $: any;
 @Component({
-  selector: 'app-navbar-cmp',
-  templateUrl: 'navbar.component.html'
+  selector: 'app-navbar-home',
+  templateUrl: './home.component.html',
+  styles: []
 })
-export class NavbarComponent implements OnInit {
+export class HomeNavbarComponent implements OnInit {
   private listTitles: any[];
   location: Location;
   mobile_menu_visible: any = 0;
@@ -23,9 +24,14 @@ export class NavbarComponent implements OnInit {
   private sidebarVisible: boolean;
   private _router: Subscription;
 
-  @ViewChild('app-navbar-cmp', { static: false }) button: any;
+  @ViewChild('app-navbar-home', { static: false }) button: any;
 
-  constructor(location: Location, private renderer: Renderer, private element: ElementRef, private router: Router) {
+  constructor(
+    location: Location,
+    private renderer: Renderer,
+    private element: ElementRef,
+    private router: Router
+  ) {
     this.location = location;
     this.nativeElement = element.nativeElement;
     this.sidebarVisible = false;
@@ -172,13 +178,13 @@ export class NavbarComponent implements OnInit {
       $layer.remove();
     }
 
-    setTimeout(function() {
+    /* setTimeout(function() {
       $toggle.classList.remove('toggled');
-    }, 400);
+    }, 400); */
 
     this.mobile_menu_visible = 0;
   }
-  
+
   sidebarToggle() {
     if (this.sidebarVisible === false) {
       this.sidebarOpen();

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import PerfectScrollbar from 'perfect-scrollbar';
-import { AuthenticationService } from '../commons/services/authentication.service';
+import { AuthenticationService } from '../../commons/services/authentication.service';
 import { Store } from '@ngrx/store';
-import { AppState } from '../store/app.reducer';
-import { Logout } from '../store/actions';
+import { AppState } from '../../store/app.reducer';
 
 declare const $: any;
 
@@ -16,7 +15,6 @@ export interface RouteInfo {
   collapse?: string;
   children?: ChildrenItems[];
 }
-
 export interface ChildrenItems {
   path: string;
   title: string;
@@ -28,28 +26,21 @@ export interface ChildrenItems {
 export let ROUTES: RouteInfo[] = [];
 
 @Component({
-  selector: 'app-sidebar-cmp',
-  templateUrl: 'sidebar.component.html'
+  selector: 'app-sidebar-profile-movil',
+  templateUrl: './sidebar-profile-movil.component.html',
+  styleUrls: ['./sidebar-profile-movil.component.css']
 })
-export class SidebarComponent implements OnInit {
+export class SidebarProfileMovilComponent implements OnInit {
   public menuItems: any[];
   ps: any;
   nombreUsuario = '--';
 
   private menu_cliente: RouteInfo[] = [
     {
-      path: '/inicio',
-      title: 'Home',
+      path: 'password',
+      title: 'Reset Password',
       type: 'link',
-      icontype: 'home'
-    },
-    {
-      path: '/departamento',
-      title: 'Departamentos',
-      type: 'sub',
-      icontype: 'grid_on',
-      collapse: 'departamentos',
-      children: [{ path: 'listado', title: 'Listado De Departamentos', ab: '-' }]
+      icontype: 'grid_on'
     }
   ];
 

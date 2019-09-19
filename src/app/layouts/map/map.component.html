@@ -1,0 +1,7 @@
+<div class="wrapper">
+  <div class="main-panel-full">
+    <router-outlet></router-outlet>
+    <app-footer-cmp></app-footer-cmp>
+    <app-footer-cliente *ngIf="esCliente()"></app-footer-cliente>
+  </div>
+</div>

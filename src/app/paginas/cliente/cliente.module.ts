@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { ClienteRoutingModule } from './cliente-routing.module';
 import { ClienteIndexComponent } from './cliente-index/cliente-index.component';
-import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { ResertPasswordComponent } from './resert-password/resert-password.component';
 
 @NgModule({
-  declarations: [ClienteIndexComponent],
-  imports: [CommonModule, ClienteRoutingModule, NgbCarouselModule]
+  declarations: [ClienteIndexComponent, ResertPasswordComponent],
+  imports: [CommonModule, ClienteRoutingModule]
 })
 export class ClienteModule {}

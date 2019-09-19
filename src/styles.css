@@ -111,7 +111,6 @@ span.cerrar:hover {
   padding-right: 10px;
 }
 
-
 .logo .logo-normal {
   font-size: 16px !important;
 }
@@ -126,13 +125,16 @@ span.cerrar:hover {
 .card {
   margin-top: 20px;
   margin-bottom: 20px;
-    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.24);
 }
 
 .esMobile {
   display: none;
-  background-color: #032650 !important;
+
   /*/color: #97ca3f !important;*/
+}
+.arritem_bag_color {
+  background-color: #032650 !important;
 }
 .navbar .logo-img-navbar img {
   display: none;
@@ -140,12 +142,11 @@ span.cerrar:hover {
 
 /* PANTALLA MEDIANA */
 @media (max-width: 991px) {
-
   a {
-      color: #FFF;
+    color: #fff;
   }
   a:hover {
-      color: #ccc !important;
+    color: #ccc !important;
   }
   .wrapper {
     background-color: #fefefe;
@@ -163,10 +164,13 @@ span.cerrar:hover {
     background-color: #fefefe;
   }
   .container-fluid {
-    padding-left: 0px;
+    padding-left: px;
     padding-right: 0px;
   }
 
+  .navbar .container-fluid {
+    padding-left: 16px !important;
+  }
   .main-panel .main-content {
     margin-top: 25px;
   }
@@ -176,13 +180,19 @@ span.cerrar:hover {
     padding-bottom: 0px;
   }
   .navbar.navbar-arritem {
+    box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.1);
     background-color: #34486d !important;
     color: #fff;
-}
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    height: 55px;
+  }
   /**  NAVBAR FOOTER */
   .router-link-active.router-link-active.router-link-active.router-link-active {
     color: #97ca3f;
   }
+
   .noEsMobile {
     display: none;
   }
@@ -200,18 +210,18 @@ span.cerrar:hover {
   .navbar.navbar-transparent .navbar-toggler .navbar-toggler-icon {
     background-color: #032650 !important;
     color: #fff !important;
-}
-.navbar{
-  border-bottom-right-radius: 0px;
+  }
+  .navbar {
+    border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
-}
-.navbar.navbar-transparent .navbar-toggler .navbar-toggler-icon {
+  }
+  .navbar.navbar-transparent .navbar-toggler .navbar-toggler-icon {
     background-color: #fff !important;
-}
+  }
   .card {
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
 }
 /* FIN PANTALLA MEDIANA */
 
@@ -222,9 +232,13 @@ span.cerrar:hover {
     padding-bottom: 15px;
   }
   .card {
-  margin-top: 15px;
-  margin-bottom: 5px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
 }
+
+.sidebar .user {
+  height: 50px;
 }
 
 .sidebar .nav li:hover > a,

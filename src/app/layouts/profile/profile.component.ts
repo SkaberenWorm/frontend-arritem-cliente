@@ -4,16 +4,18 @@ import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { Location, PopStateEvent } from '@angular/common';
 import 'rxjs/add/operator/filter';
-import { NavbarComponent } from '../../shared/navbar/navbar.component';
 import PerfectScrollbar from 'perfect-scrollbar';
 import * as $ from 'jquery';
+import { Observable, of as observableOf } from 'rxjs';
 import { AuthenticationService } from 'src/app/commons/services/authentication.service';
+import { ProfileNavbarComponent } from 'src/app/shared/navbar/profile/profile.component';
+
 @Component({
-  selector: 'app-cliente-layout',
-  templateUrl: './cliente-layout.component.html',
+  selector: 'app-profile-layout',
+  templateUrl: './profile.component.html',
   styles: []
 })
-export class ClienteLayoutComponent implements OnInit, AfterViewInit {
+export class ProfileLayoutComponent implements OnInit {
   private _router: Subscription;
   private lastPoppedUrl: string;
   private yScrollStack: number[] = [];
@@ -21,8 +23,12 @@ export class ClienteLayoutComponent implements OnInit, AfterViewInit {
   location: Location;
 
   @ViewChild('sidebar', { static: false }) sidebar: any;
-  @ViewChild(NavbarComponent, { static: false }) navbar: NavbarComponent;
-  constructor(private router: Router, location: Location, private authenticationService: AuthenticationService) {
+  @ViewChild(ProfileNavbarComponent, { static: false }) navbar: ProfileNavbarComponent;
+  constructor(
+    private router: Router,
+    location: Location,
+    private authenticationService: AuthenticationService
+  ) {
     this.location = location;
   }
 
@@ -69,16 +75,11 @@ export class ClienteLayoutComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.runOnRouteChange();
   }
-  public isMap() {
-    if (this.location.prepareExternalUrl(this.location.path()) === '/maps/fullscreen') {
-      return true;
-    } else {
-      return false;
-    }
-  }
+
   esCliente() {
     return this.authenticationService.esRol('Cliente');
   }
+
   runOnRouteChange(): void {
     if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
       const elemSidebar = <HTMLElement>document.querySelector('.sidebar .sidebar-wrapper');
@@ -91,7 +92,10 @@ export class ClienteLayoutComponent implements OnInit, AfterViewInit {
 
   isMac(): boolean {
     let bool = false;
-    if (navigator.platform.toUpperCase().indexOf('MAC') >= 0 || navigator.platform.toUpperCase().indexOf('IPAD') >= 0) {
+    if (
+      navigator.platform.toUpperCase().indexOf('MAC') >= 0 ||
+      navigator.platform.toUpperCase().indexOf('IPAD') >= 0
+    ) {
       bool = true;
     }
     return bool;

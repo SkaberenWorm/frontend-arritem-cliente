@@ -2,9 +2,11 @@ import { Routes } from '@angular/router';
 
 import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
 import { LoginGuard } from './commons/guards/login.guard';
-import { ClienteLayoutComponent } from './layouts/cliente-layout/cliente-layout.component';
 import { RolClienteGuard } from './commons/guards/rol-cliente.guard';
-import { GeneralLayoutComponent } from './layouts/general/general-layout.component';
+import { HomeLayoutComponent } from './layouts/home/home.component';
+import { SearchLayoutComponent } from './layouts/search/search.component';
+import { MapLayoutComponent } from './layouts/map/map.component';
+import { ProfileLayoutComponent } from './layouts/profile/profile.component';
 
 export const AppRoutes: Routes = [
   {
@@ -19,13 +21,24 @@ export const AppRoutes: Routes = [
   },
   {
     path: 'inicio',
-    component: ClienteLayoutComponent,
+    component: HomeLayoutComponent,
     loadChildren: './paginas/cliente/cliente.module#ClienteModule',
     canLoad: [LoginGuard, RolClienteGuard]
   },
   {
     path: 'departamento',
-    component: GeneralLayoutComponent,
+    component: SearchLayoutComponent,
+    loadChildren: './paginas/departamento/departamento.module#DepartamentoModule',
+    canLoad: [LoginGuard, RolClienteGuard]
+  },
+  {
+    path: 'departamento',
+    component: SearchLayoutComponent,
     loadChildren: './paginas/departamento/departamento.module#DepartamentoModule'
+  },
+  {
+    path: 'cliente',
+    component: ProfileLayoutComponent,
+    loadChildren: './paginas/cliente/cliente.module#ClienteModule'
   }
 ];

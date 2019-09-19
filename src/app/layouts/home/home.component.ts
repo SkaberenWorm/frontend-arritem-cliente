@@ -4,18 +4,17 @@ import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { Location, PopStateEvent } from '@angular/common';
 import 'rxjs/add/operator/filter';
-import { NavbarComponent } from '../../shared/navbar/navbar.component';
 import PerfectScrollbar from 'perfect-scrollbar';
 import * as $ from 'jquery';
 import { Observable, of as observableOf } from 'rxjs';
 import { AuthenticationService } from 'src/app/commons/services/authentication.service';
-
+import { HomeNavbarComponent } from 'src/app/shared/navbar/home/home.component';
 @Component({
-  selector: 'app-general-layout',
-  templateUrl: './general-layout.component.html',
+  selector: 'app-home-layout',
+  templateUrl: './home.component.html',
   styles: []
 })
-export class GeneralLayoutComponent implements OnInit, AfterViewInit {
+export class HomeLayoutComponent implements OnInit, AfterViewInit {
   private _router: Subscription;
   private lastPoppedUrl: string;
   private yScrollStack: number[] = [];
@@ -23,7 +22,7 @@ export class GeneralLayoutComponent implements OnInit, AfterViewInit {
   location: Location;
 
   @ViewChild('sidebar', { static: false }) sidebar: any;
-  @ViewChild(NavbarComponent, { static: false }) navbar: NavbarComponent;
+  @ViewChild(HomeNavbarComponent, { static: false }) navbar: HomeNavbarComponent;
   constructor(
     private router: Router,
     location: Location,
@@ -74,13 +73,6 @@ export class GeneralLayoutComponent implements OnInit, AfterViewInit {
   }
   ngAfterViewInit() {
     this.runOnRouteChange();
-  }
-  public isMap() {
-    if (this.location.prepareExternalUrl(this.location.path()) === '/maps/fullscreen') {
-      return true;
-    } else {
-      return false;
-    }
   }
 
   esCliente() {
