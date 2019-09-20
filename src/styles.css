@@ -207,13 +207,15 @@ span.cerrar:hover {
     top: 0px;
     left: 13px;
   }
+  .navbar .navbar-brand {
+    margin-right: 0px;
+  }
   .navbar.navbar-transparent .navbar-toggler .navbar-toggler-icon {
     background-color: #032650 !important;
     color: #fff !important;
   }
   .navbar {
-    border-bottom-right-radius: 0px;
-    border-bottom-left-radius: 0px;
+    border-radius: 0px;
   }
   .navbar.navbar-transparent .navbar-toggler .navbar-toggler-icon {
     background-color: #fff !important;

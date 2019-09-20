@@ -1,8 +1,8 @@
 {
-  "name": "arritem",
-  "short_name": "arritem",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "Arritem",
+  "short_name": "Arritem Client",
+  "theme_color": "#34486d",
+  "background_color": "#34486d",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",

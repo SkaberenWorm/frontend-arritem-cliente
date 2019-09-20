@@ -7,11 +7,6 @@ import { ResertPasswordComponent } from './resert-password/resert-password.compo
 
 const routes: Routes = [
   {
-    path: '',
-    component: ClienteIndexComponent,
-    canActivate: [LoginGuard, RolClienteGuard]
-  },
-  {
     path: 'profile',
     component: ClienteIndexComponent,
     canActivate: [LoginGuard, RolClienteGuard]

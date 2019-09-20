@@ -84,7 +84,7 @@ export class AuthenticationService {
     this.token = '';
 
     localStorage.removeItem('token');
-    this.router.navigate(['/login']);
+    this.router.navigate(['/welcome']);
   }
 
   public isAuthorized() {

@@ -65,6 +65,7 @@ import { MapLayoutComponent } from './layouts/map/map.component';
 import { ProfileLayoutComponent } from './layouts/profile/profile.component';
 import { LikeLayoutComponent } from './layouts/like/like.component';
 import { ClienteModule } from './paginas/cliente/cliente.module';
+import { WelcomeModule } from './paginas/welcome/welcome.module';
 
 registerLocaleData(localeES, 'es-CL');
 
@@ -114,7 +115,7 @@ export class MaterialModule {}
     BrowserAnimationsModule,
     FormsModule,
     RouterModule.forRoot(AppRoutes, {
-      useHash: false
+      useHash: true
     }),
     HttpClientModule,
     MaterialModule,
@@ -132,7 +133,8 @@ export class MaterialModule {}
       logOnly: environment.production // Restrict extension to log-only mode
     }),
     BlockUIModule.forRoot(),
-    ClienteModule
+    ClienteModule,
+    WelcomeModule
   ],
   providers: [
     {

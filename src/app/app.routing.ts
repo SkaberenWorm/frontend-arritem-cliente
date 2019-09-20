@@ -7,12 +7,18 @@ import { HomeLayoutComponent } from './layouts/home/home.component';
 import { SearchLayoutComponent } from './layouts/search/search.component';
 import { MapLayoutComponent } from './layouts/map/map.component';
 import { ProfileLayoutComponent } from './layouts/profile/profile.component';
+import { InicioComponent } from './paginas/welcome/inicio/inicio.component';
 
 export const AppRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
+    component: InicioComponent,
+    loadChildren: './paginas/welcome/welcome.module#WelcomeModule'
+  },
+  {
+    path: 'welcome',
+    component: InicioComponent,
+    loadChildren: './paginas/welcome/welcome.module#WelcomeModule'
   },
   {
     path: 'login',
