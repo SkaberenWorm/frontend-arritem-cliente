@@ -1,0 +1,41 @@
+.main-content {
+  padding-top: 0px;
+}
+.card {
+  border-radius: 0px;
+  box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.04);
+}
+.card .card-body {
+  padding: 0px;
+}
+.card.card-stats .card-header i {
+  line-height: 25px;
+  width: 10px;
+  height: 30px;
+  text-align: center;
+}
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: 0px;
+}
+
+.modal .modal-dialog {
+  margin-top: 200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.modal-dialog .modal-body {
+  padding: 0px;
+}
+
+.modal-sm {
+  max-width: 250px;
+}
+.list-group-item {
+  color: black;
+}

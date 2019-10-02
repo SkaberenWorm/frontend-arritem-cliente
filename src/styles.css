@@ -11,8 +11,7 @@
 }
 
 .custom-is-invalid .form-control {
-  background-image: linear-gradient(to top, #f44336 2px, rgba(3, 38, 80, 0) 2px),
-    linear-gradient(to top, #f44336 1px, rgba(210, 210, 210, 0) 1px) !important;
+  background-image: linear-gradient(to top, #f44336 2px, rgba(3, 38, 80, 0) 2px), linear-gradient(to top, #f44336 1px, rgba(210, 210, 210, 0) 1px) !important;
 }
 
 .custom-is-invalid .material-icons {
@@ -51,7 +50,7 @@ div.block-ui-spinner .message {
 .card-header {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125) !important;
+  /*border-bottom: 1px solid rgba(0, 0, 0, 0.125) !important;*/
 }
 
 .list-group-item {
@@ -67,16 +66,19 @@ div.block-ui-spinner .message {
   margin-right: 0rem;
 }
 .material-icons.md-18 {
-  font-size: 18px;
+  font-size: 18px !important;
+}
+.material-icons.md-20 {
+  font-size: 24px !important;
 }
 .material-icons.md-24 {
-  font-size: 24px;
+  font-size: 24px !important;
 }
 .material-icons.md-36 {
-  font-size: 36px;
+  font-size: 36px !important;
 }
 .material-icons.md-48 {
-  font-size: 48px;
+  font-size: 48px !important;
 }
 
 button.cerrar {
@@ -142,10 +144,10 @@ span.cerrar:hover {
 
 /* PANTALLA MEDIANA */
 @media (max-width: 991px) {
-  a {
+  .footer a {
     color: #fff;
   }
-  a:hover {
+  footer a:hover {
     color: #ccc !important;
   }
   .wrapper {
@@ -164,7 +166,7 @@ span.cerrar:hover {
     background-color: #fefefe;
   }
   .container-fluid {
-    padding-left: px;
+    padding-left: 0px;
     padding-right: 0px;
   }
 
