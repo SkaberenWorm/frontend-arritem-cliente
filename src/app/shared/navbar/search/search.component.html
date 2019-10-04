@@ -1,14 +1,10 @@
 <nav class="navbar navbar-arritem navbar-light">
   <a class="navbar-brand py-0">
-    <img
-      src="./assets/img/icon-sir/icon-192x192.png"
-      height="45"
-      class="d-inline-block align-top"
-    />
+    <img src="./assets/img/icon-sir/icon-192x192.png" height="45" class="d-inline-block align-top" />
   </a>
   <span class="search_title ml-3 mr-auto">Arritem</span>
   <div class="searchbar ml-0 mr-2">
-    <input class="search_input" type="text" name="" placeholder="Buscar..." />
+    <input class="search_input" type="text" name="" placeholder="Buscar..." (keyup)="filtrarDepartamento($event.target.value)" />
     <a class="search_icon"><i class="fas fa-search"></i></a>
   </div>
 </nav>

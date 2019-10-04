@@ -30,7 +30,10 @@
   margin-right: auto !important;
 }
 .modal-dialog .modal-body {
-  padding: 0px;
+  padding-top: 0px !important;
+  padding-right: 0px !important;
+  padding-bottom: 0px !important;
+  padding-left: 0px;
 }
 
 .modal-sm {
@@ -38,4 +41,9 @@
 }
 .list-group-item {
   color: black;
+}
+
+.search-results {
+  height: 20rem;
+  overflow: scroll;
 }

@@ -1,11 +1,20 @@
+<app-navbar-search (depto)="fintrarDepartamento($event)"></app-navbar-search>
 <div class="main-content">
   <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-md-11 mx-sm-3 mx-md-1 col-lg-12">
-        <div class="card card-stats" *ngFor="let departamento of listaDepartamentos">
+        <div class="card card-stats" *ngFor="let departamento of listaDepartamentos; let indexDepto = index">
           <div class="card-header py-0">
             <span>{{ departamento.direccion }}</span>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#exampleModal">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+              data-toggle="modal"
+              data-target="#exampleModal"
+              (click)="departamentoSeleccionado(departamento)"
+            >
               <i class="material-icons md-24">more_vert</i>
             </button>
           </div>
@@ -21,6 +30,10 @@
             <footer class="blockquote-footer">${{ departamento.tarifa }}</footer>
           </div>
         </div>
+      </div>
+
+      <div class="my-5 ">
+        <app-loading [size]="24" *ngIf="loading"></app-loading>
       </div>
     </div>
   </div>

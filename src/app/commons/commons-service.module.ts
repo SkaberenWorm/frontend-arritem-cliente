@@ -19,8 +19,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { MatSelectModule, MatInputModule } from '@angular/material';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RolClienteGuard } from './guards/rol-cliente.guard';
+import { LoadingComponent } from './components/loading/loading.component';
 @NgModule({
-  declarations: [FieldErrorDisplayComponent],
+  declarations: [FieldErrorDisplayComponent, LoadingComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -53,6 +54,6 @@ import { RolClienteGuard } from './guards/rol-cliente.guard';
     UtilFormating,
     UtilValidation
   ],
-  exports: [FieldErrorDisplayComponent]
+  exports: [FieldErrorDisplayComponent, LoadingComponent]
 })
 export class CommonsServiceModule {}
